@@ -35,3 +35,5 @@ phoenix_e2e-*.tar
 npm-debug.log
 /assets/node_modules/
 
+.env
+.secrets
