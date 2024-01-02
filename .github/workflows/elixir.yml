@@ -102,11 +102,13 @@ jobs:
     # - name: Check Formatting
     #   run: mix format --check-formatted
 
+    - name: mix phx
+      run: mix phx.server
+
     # Step: Execute the tests.
     - name: Run tests
       run: mix test
 
-    - name: mix phx
-      run: mix phx.server
+
 
 
