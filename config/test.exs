@@ -40,3 +40,8 @@ config :logger, level: :warning
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
 
+# Selenium
+config :wallaby, driver: Wallaby.Selenium
+
+config :wallaby, otp_app: :phoenix_e2e
+
