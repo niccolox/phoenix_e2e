@@ -101,5 +101,5 @@ jobs:
       if: always()
       with:
         name: Selenium Logs
-        path: ./selenium-mac.log
+        path: ./selenium-v4-${{matrix.elixir-otp.elixir}}.log
 
