@@ -16,7 +16,7 @@ config :phoenix_e2e, PhoenixE2e.Repo,
 
 # Configure the database for GitHub Actions
 if System.get_env("GITHUB_ACTIONS") do
-  config :app, PhoenixE2e.Repo,
+  config :phoenix_e2e, PhoenixE2e.Repo,
     username: "postgres",
     password: "postgres"
 end
