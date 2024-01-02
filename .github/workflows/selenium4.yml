@@ -80,14 +80,15 @@ jobs:
 
 
 
-    - name: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
-      run: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
-      env:
-        WALLABY_DRIVER: selenium
-        MIX_ENV: test
-        DB_PASSWORD: postgres
-        DB_HOST: localhost
-        POSTGRES_HOST: localhost
+    # - name: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
+    #   run: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
+    #   env:
+    #     WALLABY_DRIVER: selenium
+    #     MIX_ENV: test
+    #     DB_PASSWORD: postgres
+    #     DB_HOST: localhost
+    #     POSTGRES_HOST: localhost
+
 
     - name: Run Tests
       run: mix test || mix test --failed || mix test --failed
@@ -96,6 +97,7 @@ jobs:
         DB_PASSWORD: postgres
         DB_HOST: localhost
         POSTGRES_HOST: localhost
+        WALLABY_DRIVER: selenium
 
     - uses: actions/upload-artifact@v2
       if: always()
