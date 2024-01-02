@@ -8,8 +8,8 @@ import Config
 config :phoenix_e2e, PhoenixE2e.Repo,
   username: "postgres",
   password: "postgres",
-  hostname: "localhost",
-  database: "phoenix_e2e_test#{System.get_env("MIX_TEST_PARTITION")}",
+  hostname: "postgres",
+  database: "postgres",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 

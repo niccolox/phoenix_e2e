@@ -24,6 +24,7 @@ jobs:
         ports: ['5432:5432']
         env:
           POSTGRES_PASSWORD: postgres
+          POSTGRES_HOST: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -75,11 +76,14 @@ jobs:
       env:
         MIX_ENV: test
         DB_PASSWORD: postgres
-        DB_HOST: postgres
+        DB_HOST: localhost
 
     - name: Run Tests
       run: mix test || mix test --failed || mix test --failed
-
+      env:
+        MIX_ENV: test
+        DB_PASSWORD: postgres
+        DB_HOST: postgres
 
     - uses: actions/upload-artifact@v2
       if: always()
