@@ -115,8 +115,8 @@ jobs:
       WALLABY_DRIVER: selenium
 
     strategy:
-      matrix:
-        elixir-otp: [{otp: 24.x, elixir: 1.13.x}]
+        otp: ['26.2.0']       # Define the OTP version [required]
+        elixir: ['1.14.5']    # Define the elixir version [required]
       fail-fast: false
 
     steps:
