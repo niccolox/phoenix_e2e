@@ -7,6 +7,8 @@
 # General application configuration
 import Config
 
+config :wallaby, otp_app: :phoenix_e2e
+
 config :phoenix_e2e,
   ecto_repos: [PhoenixE2e.Repo]
 
@@ -65,5 +67,3 @@ import_config "#{config_env()}.exs"
 
 # Selenium
 config :wallaby, driver: Wallaby.Selenium
-
-config :wallaby, otp_app: :phoenix_e2e
