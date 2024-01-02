@@ -68,7 +68,7 @@ jobs:
       run: java -Djava.awt.headless=true -jar "$SELENIUM_JAR_PATH" standalone > selenium-v4-${{matrix.elixir-otp.elixir}}.log 2>&1 &
 
     - name: mix phx
-      run: mix phx.server
+      run: MIX_ENV=test mix phx.server
 
     - name: Run Tests
       run: mix test || mix test --failed || mix test --failed
