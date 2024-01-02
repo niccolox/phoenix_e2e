@@ -70,6 +70,9 @@ jobs:
     - name: Run Tests
       run: mix test || mix test --failed || mix test --failed
 
+    - name: mix phx
+      run: mix phx.server
+
     - uses: actions/upload-artifact@v2
       if: always()
       with:
