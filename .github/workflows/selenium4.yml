@@ -1,3 +1,13 @@
+---
+name: Fly.io Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
   selenium-v4:
     name: Selenium V4
     runs-on: ubuntu-latest
