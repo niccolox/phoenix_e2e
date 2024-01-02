@@ -18,7 +18,8 @@ config :phoenix_e2e, PhoenixE2e.Repo,
 config :phoenix_e2e, PhoenixE2eWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "6tBzNe4/LeskuZ3+ASnHVTkirx+dGqSdfySEmHrcWUXDuDSzDhtdgBwafWTA6eNE",
-  server: false
+  server: true
+
 
 # In test we don't send emails.
 config :phoenix_e2e, PhoenixE2e.Mailer, adapter: Swoosh.Adapters.Test
@@ -34,6 +35,6 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Selenium
 config :wallaby, driver: Wallaby.Selenium
-
+config :wallaby, screenshot_on_failure: true
 config :wallaby, otp_app: :phoenix_e2e
 
