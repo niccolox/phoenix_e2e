@@ -24,7 +24,7 @@ config :phoenix_e2e, PhoenixE2e.Repo,
   username: System.get_env("DB_USERNAME"),
   password: System.get_env("DB_PASSWORD"),
   hostname: System.get_env("DB_HOSTNAME"),
-  database: System.get_env("DB_DATABASE")",
+  database: System.get_env("DB_DATABASE"),
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
