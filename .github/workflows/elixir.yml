@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Elixir CI
+name: Phoenix CI
 
 on:
   push:
@@ -36,6 +36,8 @@ jobs:
 
     runs-on: ubuntu-latest
     name: Test on OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
+    timeout-minutes: 5
+
     strategy:
       # Specify the OTP and Elixir versions to use when building
       # and running the workflow steps.
@@ -103,4 +105,8 @@ jobs:
     # Step: Execute the tests.
     - name: Run tests
       run: mix test
+
+    - name: mix phx
+      run: mix phx.server
+
 
