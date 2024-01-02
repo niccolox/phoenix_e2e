@@ -13,14 +13,6 @@ config :phoenix_e2e, PhoenixE2e.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
-
-# Configure the database for GitHub Actions
-if System.get_env("GITHUB_ACTIONS") do
-  config :phoenix_e2e, PhoenixE2e.Repo,
-    username: "postgres",
-    password: "postgres"
-end
-
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :phoenix_e2e, PhoenixE2eWeb.Endpoint,

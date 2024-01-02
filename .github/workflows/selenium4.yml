@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  MIX_ENV: test
+
 jobs:
   selenium-v4:
 
@@ -68,7 +71,11 @@ jobs:
       run: java -Djava.awt.headless=true -jar "$SELENIUM_JAR_PATH" standalone > selenium-v4-${{matrix.elixir-otp.elixir}}.log 2>&1 &
 
     - name: mix phx
-      run: MIX_ENV=test mix phx.server
+      run: mix phx.server
+      env:
+        MIX_ENV: test
+        DB_PASSWORD: postgres
+        DB_HOST: postgres
 
     - name: Run Tests
       run: mix test || mix test --failed || mix test --failed
