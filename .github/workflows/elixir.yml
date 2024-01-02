@@ -115,6 +115,9 @@ jobs:
       WALLABY_DRIVER: selenium
 
     strategy:
+      # Specify the OTP and Elixir versions to use when building
+      # and running the workflow steps.
+      matrix:
         otp: ['26.2.0']       # Define the OTP version [required]
         elixir: ['1.14.5']    # Define the elixir version [required]
       fail-fast: false
