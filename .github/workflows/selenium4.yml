@@ -70,9 +70,20 @@ jobs:
     - name: Start Selenium
       run: java -Djava.awt.headless=true -jar "$SELENIUM_JAR_PATH" standalone > selenium-v4-${{matrix.elixir-otp.elixir}}.log 2>&1 &
 
-    - name: mix phx
+    - name: elixir --erl "-detached" -S mix phx.server
       run: elixir --erl "-detached" -S mix phx.server
       env:
+        MIX_ENV: test
+        DB_PASSWORD: postgres
+        DB_HOST: localhost
+        POSTGRES_HOST: localhost
+
+
+
+    - name: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
+      run: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
+      env:
+        WALLABY_DRIVER: selenium
         MIX_ENV: test
         DB_PASSWORD: postgres
         DB_HOST: localhost
