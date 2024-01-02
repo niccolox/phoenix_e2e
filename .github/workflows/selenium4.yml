@@ -1,5 +1,5 @@
 ---
-name: Fly.io Deploy
+name: Selenium 4
 
 on:
   workflow_dispatch:
