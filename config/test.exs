@@ -8,7 +8,7 @@ import Config
 config :phoenix_e2e, PhoenixE2e.Repo,
   username: "postgres",
   password: "postgres",
-  hostname: "postgres",
+  hostname: "localhost",
   database: "postgres",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
