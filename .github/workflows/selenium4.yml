@@ -76,6 +76,7 @@ jobs:
         MIX_ENV: test
         DB_PASSWORD: postgres
         DB_HOST: localhost
+        POSTGRES_HOST: localhost
 
     - name: Run Tests
       run: mix test || mix test --failed || mix test --failed
