@@ -80,6 +80,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: mix deps.get
 
+    - run: mix ecto.migrate
 
     # - name: elixir --erl "-detached" -S mix phx.server
     #   run: elixir --erl "-detached" -S mix phx.server
@@ -102,7 +103,7 @@ jobs:
 
 
     - name: Run Tests
-      run: mix test || mix test --failed || mix test --failed
+      run: mix test --trace
       # env:
       #   MIX_ENV: test
       #   DB_PASSWORD: postgres
