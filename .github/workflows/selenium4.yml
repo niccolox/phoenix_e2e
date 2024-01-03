@@ -15,6 +15,10 @@ on:
 
 env:
   MIX_ENV: test
+  DB_PASSWORD: postgres
+  DB_HOST: localhost
+  POSTGRES_HOST: localhost
+  WALLABY_DRIVER: selenium
 
 jobs:
   selenium-v4:
@@ -45,8 +49,8 @@ jobs:
 
 #    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == true)
 
-    env:
-      WALLABY_DRIVER: selenium
+    # env:
+    #   WALLABY_DRIVER: selenium
 
     strategy:
       # Specify the OTP and Elixir versions to use when building
@@ -89,22 +93,22 @@ jobs:
 
     - name: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
       run: WALLABY_DRIVER=selenium mix test test/phoenix_e2e_web/e2e/hello.exs
-      env:
-        WALLABY_DRIVER: selenium
-        MIX_ENV: test
-        DB_PASSWORD: postgres
-        DB_HOST: localhost
-        POSTGRES_HOST: localhost
+      # env:
+      #   WALLABY_DRIVER: selenium
+      #   MIX_ENV: test
+      #   DB_PASSWORD: postgres
+      #   DB_HOST: localhost
+      #   POSTGRES_HOST: localhost
 
 
     - name: Run Tests
       run: mix test || mix test --failed || mix test --failed
-      env:
-        MIX_ENV: test
-        DB_PASSWORD: postgres
-        DB_HOST: localhost
-        POSTGRES_HOST: localhost
-        WALLABY_DRIVER: selenium
+      # env:
+      #   MIX_ENV: test
+      #   DB_PASSWORD: postgres
+      #   DB_HOST: localhost
+      #   POSTGRES_HOST: localhost
+      #   WALLABY_DRIVER: selenium
 
     - uses: actions/upload-artifact@v2
       if: always()
