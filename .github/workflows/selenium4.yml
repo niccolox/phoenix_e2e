@@ -19,6 +19,11 @@ jobs:
     # use Postgres. This creates a database for running tests.
     # Additional services can be defined here if required.
     services:
+
+      selenium:
+        image: selenium/standalone-${{ github.event.inputs.browser }}
+        options: --shm-size=2gb
+        
       db:
         image: postgres:15
         ports: ['5432:5432']
@@ -67,10 +72,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: mix deps.get
 
-      selenium:
-        image: selenium/standalone-${{ github.event.inputs.browser }}
-        options: --shm-size=2gb
-        
+
     # - name: elixir --erl "-detached" -S mix phx.server
     #   run: elixir --erl "-detached" -S mix phx.server
     #   env:
@@ -81,14 +83,14 @@ jobs:
 
 
 
-    # - name: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
-    #   run: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
-    #   env:
-    #     WALLABY_DRIVER: selenium
-    #     MIX_ENV: test
-    #     DB_PASSWORD: postgres
-    #     DB_HOST: localhost
-    #     POSTGRES_HOST: localhost
+    - name: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
+      run: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
+      env:
+        WALLABY_DRIVER: selenium
+        MIX_ENV: test
+        DB_PASSWORD: postgres
+        DB_HOST: localhost
+        POSTGRES_HOST: localhost
 
 
     - name: Run Tests
