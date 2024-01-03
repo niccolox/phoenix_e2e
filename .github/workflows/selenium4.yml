@@ -12,7 +12,7 @@ on:
           - chrome
           - firefox
           - edge
-          
+
 env:
   MIX_ENV: test
 
@@ -88,7 +88,7 @@ jobs:
 
 
     - name: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
-      run: WALLABY_DRIVER=selenium mix test test/support/e2e/hello.exs
+      run: WALLABY_DRIVER=selenium mix test test/phoenix_e2e_web/e2e/hello.exs
       env:
         WALLABY_DRIVER: selenium
         MIX_ENV: test
