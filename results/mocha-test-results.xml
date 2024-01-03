@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.002" tests="1" failures="1">
+  <testsuite name="" timestamp="2024-01-03T03:04:51" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Root Suite.search" timestamp="2024-01-03T03:04:51" tests="1" file="/phoenix_e2e/test.mjs" time="0.002" failures="1">
+    <testcase name="&quot;before each&quot; hook for &quot;should search for &quot;Selenium dev&quot;&quot;" time="0.001" classname="search">
+      <failure message="Target browser must be a string, but is &lt;undefined&gt;; did you forget to call forBrowser()?" type="TypeError"><![CDATA[TypeError: Target browser must be a string, but is <undefined>; did you forget to call forBrowser()?
+    at Builder.build (node_modules/selenium-webdriver/index.js:600:13)
+    at Context.<anonymous> (file:///phoenix_e2e/test.mjs:42:14)
+    at process.processImmediate (node:internal/timers:478:21)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
