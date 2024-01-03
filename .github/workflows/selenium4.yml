@@ -67,9 +67,10 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: mix deps.get
 
-    - name: Start Selenium
-      run: java -Djava.awt.headless=true -jar "$SELENIUM_JAR_PATH" standalone > selenium-v4-${{matrix.elixir-otp.elixir}}.log 2>&1 &
-
+      selenium:
+        image: selenium/standalone-${{ github.event.inputs.browser }}
+        options: --shm-size=2gb
+        
     # - name: elixir --erl "-detached" -S mix phx.server
     #   run: elixir --erl "-detached" -S mix phx.server
     #   env:
